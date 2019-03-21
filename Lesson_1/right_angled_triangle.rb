@@ -1,20 +1,15 @@
 print "Введите стороны треугольника a,b,c: "
-a = gets.to_f
-b = gets.to_f
-c = gets.to_f
+side_1 = gets.to_f
+side_2 = gets.to_f
+side_3 = gets.to_f
 
-h = a
-pyth = b ** 2 + c ** 2 == (h ** 2).round
+sides = [side_1, side_2, side_3].sort
 
-if b > h
-  h = b
-  pyth = a ** 2 + c ** 2 == (h ** 2).round
-end
+a = sides[0]
+b = sides[1]
+c = sides[2]
 
-if c > h
-  h = c
-  pyth = a ** 2 + b ** 2 == (h ** 2).round
-end
+pyth = (a**2).round + (b**2).round == (c**2).round
 
 if (pyth) && (a == b || b == c || a == c)
   puts "Треугольник прямоугольный и равнобедренный"
@@ -25,3 +20,4 @@ elsif a == b && b == c && a == c
 else
   puts "Треугольник равнобедренный"
 end
+
