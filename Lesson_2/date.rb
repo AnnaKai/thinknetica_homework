@@ -9,10 +9,9 @@ months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 if year % 4 != 0 || (year % 100 == 0 && year % 400 != 0)
 else
-	months[1] = 29
+		months[1] = 29
 end
 
 value = (months.first(month - 1)).sum + day
 
 puts value
-
