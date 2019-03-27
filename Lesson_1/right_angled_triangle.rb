@@ -3,11 +3,7 @@ side_1 = gets.to_f
 side_2 = gets.to_f
 side_3 = gets.to_f
 
-sides = [side_1, side_2, side_3].sort
-
-a = sides[0]
-b = sides[1]
-c = sides[2]
+a,b,c = [side_1, side_2, side_3].sort
 
 pyth = (a**2).round + (b**2).round == (c**2).round
 
