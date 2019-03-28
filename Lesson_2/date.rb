@@ -12,6 +12,6 @@ else
   months[1] = 29
 end
 
-value = (months.first(month - 1)).sum + day
+value = months.first(month - 1).sum + day
 
 puts value

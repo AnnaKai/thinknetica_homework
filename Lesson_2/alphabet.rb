@@ -1,8 +1,9 @@
 result = Hash.new
-alphabet = ('a'..'z').to_a
+alphabet = ('a'..'z')
 vowels = %w(a e i o u y)
 
-vowels.each do |vowel|
-  num = alphabet.find_index(vowel) + 1
-  result[vowel] = num
+alphabet.each.with_index(1) do |num, letter|
+  result[num] = letter if vowels.include?(num)
 end
+
+puts result
