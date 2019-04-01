@@ -1,10 +1,7 @@
-arr = []
+arr = [0, 1]
 i = 0
-a = 0
-b = 1
 
-while a <= 100 do
-  arr[i] = a
+while (a = (arr[i]) + (arr[i + 1])) <= 100 do
+  arr << a
   i += 1
-  a, b = b, a + b
 end
