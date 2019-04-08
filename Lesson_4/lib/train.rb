@@ -1,11 +1,11 @@
 class Train
-  attr_accessor :speed, :wagon_num, :route
+  attr_accessor :speed, :route, :wagons
+  attr_reader :type
 
-  def initialize(num, type, wagon_num)
+  def initialize(num)
     @num = num
-    @type = type
-z
     @speed = 0
+    @wagons = []
   end
 
   def increase_speed(km)
@@ -14,14 +14,6 @@ z
 
   def stop
     @speed = 0
-  end
-
-  def add_wagon
-    @wagon_num += 1 if @speed == 0
-  end
-
-  def remove_wagon
-    @wagon_num -= 1 if @speed == 0 && @wagon_num > 0
   end
 
   def apply_route(route)
@@ -45,6 +37,16 @@ z
       @location -= 1
     end
   end
+
+  def add_wagon(wagon)
+    @wagons << wagon if @speed.zero?
+  end
+
+  def remove_wagon(wagon)
+    @wagons.delete(wagon) if @speed.zero?
+  end
+
+  protected #shouldn't be used outside of the class and its children
 
   def current_station
     @route.stations[@location]
