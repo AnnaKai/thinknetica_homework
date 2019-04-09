@@ -4,7 +4,7 @@ class CargoTrain < Train
     @type = 'cargo'
   end
 
-  def add(wagon)
-    add_wagon(wagon) if wagon.is_a? CargoWagon
+  def add_wagon(wagon)
+    super(wagon) if wagon.is_a? CargoWagon
   end
 end

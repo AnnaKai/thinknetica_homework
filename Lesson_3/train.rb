@@ -4,7 +4,7 @@ class Train
   def initialize(num, type, wagon_num)
     @num = num
     @type = type
-z
+    @wagon_num = wagon_num
     @speed = 0
   end
 

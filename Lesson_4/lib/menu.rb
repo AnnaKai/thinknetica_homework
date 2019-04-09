@@ -29,6 +29,10 @@ module MenuHelper
     end
   end
 
+  def sort_by_value(array, value)
+    array.map(&value)
+  end
+
   def get_item(data)
     num = gets.to_i
     data[num - 1]

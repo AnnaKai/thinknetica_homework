@@ -93,7 +93,8 @@ class Main
 
   def create_route
     if @stations.length >= 2
-      show_list(@stations)
+      stations = sort_by_value(@stations, :name)
+      show_list(stations)
       puts 'From: '
       from = get_item(@stations)
       puts 'To: '
@@ -111,7 +112,8 @@ class Main
       print "\nYou should create a Train before you can change its Wagons\n"
     else
       puts 'Enter Train index to add/remove wagons: '
-      show_list(@trains)
+      trains = sort_by_value(@trains, :num)
+      show_list(trains)
       train = get_item(@trains)
       if @trains.include? train
         show_menu(WAGON_MENU)
@@ -151,6 +153,7 @@ class Main
     return if available_stations.empty?
 
     puts "\nEnter a number of Station you'd like to add"
+    available_stations = sort_by_value(available_stations, :name)
     show_list(available_stations)
     station = get_item(available_stations)
     route.add_middway(station)
@@ -158,6 +161,7 @@ class Main
 
   def remove_station_from(route)
     puts "\nEnter number of Station to remove"
+
     show_list(route.stations)
     station = get_item(route.stations)
     return if route.stations.size < 3
@@ -217,7 +221,7 @@ class Main
 
   def movement_menu
     if @trains.empty?
-      print "\nThere's no trains to move"
+      print "\nThere's no trains to move\n"
     else
       print ">>> TRAIN MOVEMENT <<<\n"
       puts 'Pick a Train: '
@@ -241,7 +245,8 @@ class Main
       print "\nThere's no stations\n"
     else
       puts 'Stations: '
-      show_list(@stations)
+      stations = sort_by_value(@stations, :name)
+      show_list(stations)
     end
   end
 
@@ -250,11 +255,12 @@ class Main
       print"\nNo stations yet\n"
     else
       puts 'Pick a Station to see the trains: '
-      show_list(@stations)
+      stations = sort_by_value(@stations, :name)
+      show_list(stations)
       station = get_item(@stations)
       return unless station
 
-      puts "Trains at the Station #{station.name}:"
+      puts "Trains at the Station > #{station.name} < :"
       show_list(station.trains)
     end
   end
