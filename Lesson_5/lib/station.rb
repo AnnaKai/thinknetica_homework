@@ -5,13 +5,16 @@ class Station
 
   attr_reader :name, :trains
 
+  @@stations = []
+
   def self.all
-    ObjectSpace.each_object(self).to_a
+    @@stations
   end
 
   def initialize(name)
     @name = name
     @trains = []
+    @@stations << self
     register_instance
   end
 
@@ -27,4 +30,3 @@ class Station
     @trains.select { |train| train.type == type }
   end
 end
-
