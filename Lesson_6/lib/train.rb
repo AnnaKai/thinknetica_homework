@@ -9,14 +9,24 @@ class Train
   attr_accessor :speed, :route, :wagons, :num
   attr_reader :type
 
+  TRAIN_NUM_FORMAT = /^[0-9a-zA-Z]{3}-?[0-9a-zA-Z]{2}$/i
+
   @@trains = {}
 
   def initialize(num)
     @num = num
+    validate!
     @speed = 0
     @wagons = []
     @@trains[num] = self
     register_instance
+  end
+
+  def valid?
+    validate!
+    true
+  rescue StandardError
+    false
   end
 
   def self.find(num)
@@ -61,7 +71,13 @@ class Train
     @wagons.delete(wagon) if @speed.zero?
   end
 
-  protected #shouldn't be used outside of the class and its children
+  protected # shouldn't be used outside of the class and its children
+
+  def validate!
+    raise 'Train Number has invalid format' if num !~ TRAIN_NUM_FORMAT
+
+    true
+  end
 
   def current_station
     @route.stations[@location]
