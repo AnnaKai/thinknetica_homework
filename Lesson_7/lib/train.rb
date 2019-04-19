@@ -9,7 +9,7 @@ class Train
   attr_accessor :speed, :route, :wagons, :num
   attr_reader :type
 
-  TRAIN_NUM_FORMAT = /^[0-9a-zA-Z]{3}-?[0-9a-zA-Z]{2}$/i
+  TRAIN_NUM_FORMAT = /^[0-9a-zA-Z]{3}-?[0-9a-zA-Z]{2}$/i.freeze
 
   @@trains = {}
 
@@ -20,6 +20,10 @@ class Train
     @wagons = []
     @@trains[num] = self
     register_instance
+  end
+
+  def wagon
+    @wagons.each { |wagon| yield(wagon) }
   end
 
   def valid?
