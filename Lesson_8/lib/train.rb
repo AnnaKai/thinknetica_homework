@@ -1,8 +1,7 @@
-require_relative 'company'
-require_relative 'counter'
+require_relative "company"
+require_relative "counter"
 # Train
 class Train
-
   include InstanceCounter
   include Company
 
@@ -67,7 +66,6 @@ class Train
     current_station.remove(self)
     previous_station.add(self)
     @location -= 1
-
   end
 
   def add_wagon(wagon)
@@ -81,7 +79,7 @@ class Train
   protected # shouldn't be used outside of the class and its children
 
   def validate!
-    raise 'Train Number has invalid format' if num !~ TRAIN_NUM_FORMAT
+    raise "Train Number has invalid format" if num !~ TRAIN_NUM_FORMAT
 
     true
   end

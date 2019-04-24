@@ -1,10 +1,9 @@
-require_relative 'wagon'
+require_relative "wagon"
 # Passenger Car
 class PassengerWagon < Wagon
-
   def initialize(capacity)
     super
-    @type = 'Passenger'
+    @type = "Passenger"
   end
 
   def increase_capacity_usage(_capacity)

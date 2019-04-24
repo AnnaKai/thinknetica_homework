@@ -1,11 +1,11 @@
-require_relative 'counter'
+require_relative "counter"
 # Cargo Train
 class CargoTrain < Train
   include InstanceCounter
 
   def initialize(num)
     super
-    @type = 'cargo'
+    @type = "cargo"
     validate!
   end
 

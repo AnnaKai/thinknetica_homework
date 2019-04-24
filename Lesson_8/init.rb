@@ -5,8 +5,8 @@
 
 ROOT = File.dirname(__FILE__)
 
-$:.unshift(File.join(ROOT, 'lib'))
-require 'main'
+$LOAD_PATH.unshift(File.join(ROOT, "lib"))
+require "main"
 
 main = Main.new
 main.launch!

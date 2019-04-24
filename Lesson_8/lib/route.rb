@@ -1,4 +1,4 @@
-require_relative 'counter'
+require_relative "counter"
 # Train Route
 class Route
   include InstanceCounter
@@ -36,8 +36,8 @@ class Route
   protected
 
   def validate!(from, to)
-    raise 'No Starting Point' unless from
-    raise 'No Ending Point' unless to
+    raise "No Starting Point" unless from
+    raise "No Ending Point" unless to
     raise "Route Points can't be equal" if from == to
 
     true

@@ -2,15 +2,15 @@
 module MenuHelper
   # Main menus
   MAIN_MENU = %w[Trains Routes Stations].freeze
-  TRAIN_MENU = ['Create a Train', 'Set a Route', 'Move a Train', 'Operate Wagons', 'Show Wagon Info'].freeze
-  STATION_MENU = ['Create a Station', 'Show all Stations', 'Show Trains at the Station'].freeze
-  ROUTE_MENU = ['Create a Route', 'Manage Stations'].freeze
+  TRAIN_MENU = ["Create a Train", "Move a Train", "Operate Wagons", "Show Wagon Info"].freeze
+  STATION_MENU = ["Create a Station", "Show all Stations", "Show Trains at the Station"].freeze
+  ROUTE_MENU = ["Create a Route", "Manage Stations", "Set a Route"].freeze
 
   # Submenus
-  ROUTE_STATIONS_MENU = ['Add a Station', 'Remove a Station'].freeze
+  ROUTE_STATIONS_MENU = ["Add a Station", "Remove a Station"].freeze
   TRAIN_TYPE_MENU = %w[Passenger Cargo].freeze
-  WAGON_MENU = ['Add a Wagon and its Capacity', 'Remove a wagon', 'Occupy Wagon'].freeze
-  MOVEMENT_MENU = ['Move the Train forward', 'Move the Train back'].freeze
+  WAGON_MENU = ["Add a Wagon and its Capacity", "Remove a wagon", "Occupy Wagon"].freeze
+  MOVEMENT_MENU = ["Move the Train forward", "Move the Train back"].freeze
 
   # Helpers
   def show_menu(item)
@@ -21,7 +21,7 @@ module MenuHelper
 
   def show_list(data)
     if data.empty?
-      puts 'None'
+      puts "None"
     else
       data.each.with_index(1) do |item, index|
         puts "#{index} —> #{item}\n"

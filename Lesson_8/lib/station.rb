@@ -1,4 +1,4 @@
-require_relative 'counter'
+require_relative "counter"
 # Train Station
 class Station
   include InstanceCounter
@@ -46,9 +46,9 @@ class Station
   protected
 
   def validate!
-    raise 'No Station Name was given' if name.empty?
+    raise "No Station Name was given" if name.empty?
     raise "Station Name can't be nil" if name.nil?
-    raise 'Short Station name. It should be more than 2 chars' if name.length < 2
+    raise "Short Station name. It should be more than 2 chars" if name.length < 2
 
     true
   end

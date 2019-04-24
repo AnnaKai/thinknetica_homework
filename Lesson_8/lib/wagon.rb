@@ -1,4 +1,4 @@
-require_relative 'company'
+require_relative "company"
 # Train Car/wagon
 class Wagon
   include Company
@@ -11,8 +11,8 @@ class Wagon
   end
 
   def increase_capacity_usage(num)
-    raise 'Can only be a positive number' if num < 0
-    raise 'No more space available' if @capacity_usage + num > @capacity
+    raise "Can only be a positive number" if num < 0
+    raise "No more space available" if @capacity_usage + num > @capacity
 
     @capacity_usage += num
   end
