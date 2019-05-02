@@ -30,7 +30,7 @@ module Validation
     def validate!
       self.class.validation_rules.each do |rule|
         value = instance_variable_get("@#{rule[:name]}")
-        send "validate_#{rule[:type]}", value, rule[:args]
+        send "validate_#{rule[:type]}", value, *rule[:args]
       end
     end
 
